@@ -2,7 +2,13 @@
 import mongoose  from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  username: {
+  firstname: {
+    type: String,
+    required: true,
+    trim: true
+  },
+
+  lastname: {
     type: String,
     required: true,
     trim: true
@@ -30,6 +36,7 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: String,
     unique: true,
+    required: true,
     lowercase: true
   },
   

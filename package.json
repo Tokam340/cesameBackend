@@ -22,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.3",
     "notchpay.js": "^1.0.1",
+    "paydunya": "^1.0.12",
     "uuid": "^13.0.0"
   }
 }
