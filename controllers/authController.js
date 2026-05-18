@@ -107,6 +107,7 @@ export const register = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Erreur serveur",
+      console.log(err);
     });
   }
 };
@@ -221,6 +222,7 @@ export const login = async (req, res) => {
     });
   }
 };
+<<<<<<< HEAD
 
 // ================= LOGOUT =================
 export const logout = async (req, res) => {
@@ -262,3 +264,5 @@ export const activateUser = async (req, res) => {
 
   res.json({ message: "Utilisateur activé" });
 };
+=======
+>>>>>>> 793f108f86be41cb77b638d3541f264e8c368930
