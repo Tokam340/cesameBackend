@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route test
 app.get("/", (req, res) => {
-  res.send("🚀 API NotchPay + MongoDB opérationnelle");
+  res.send("🚀 API + MongoDB opérationnelle");
 });
 
 // Routes paiement
