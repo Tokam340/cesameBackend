@@ -222,7 +222,6 @@ export const login = async (req, res) => {
     });
   }
 };
-<<<<<<< HEAD
 
 // ================= LOGOUT =================
 export const logout = async (req, res) => {
@@ -264,5 +263,3 @@ export const activateUser = async (req, res) => {
 
   res.json({ message: "Utilisateur activé" });
 };
-=======
->>>>>>> 793f108f86be41cb77b638d3541f264e8c368930
