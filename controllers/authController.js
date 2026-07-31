@@ -159,43 +159,12 @@ export const login = async (req, res) => {
       }
     }
 
-    const MAX_SESSIONS = 2;
-
     // 🔐 créer token
     const token = jwt.sign(
       { id: user._id },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
-
-    // 🔥 sécuriser sessions
-    if (!user.sessions) user.sessions = [];
-
-    // 🧹 nettoyer sessions expirées (optionnel mais propre)
-    user.sessions = user.sessions.filter(s => {
-      try {
-        jwt.verify(s.token, process.env.JWT_SECRET);
-        return true;
-      } catch {
-        return false;
-      }
-    });
-
-    // 🆕 nouvelle session
-    const newSession = {
-      token,
-      deviceType: deviceType || "unknown",
-      userAgent: req.headers["user-agent"],
-      createdAt: new Date()
-    };
-
-    // 🔥 limiter à 2 sessions
-    if (user.sessions.length >= MAX_SESSIONS) {
-      user.sessions.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-      user.sessions.shift(); // supprime la plus ancienne
-    }
-
-    user.sessions.push(newSession);
 
     await user.save();
 
